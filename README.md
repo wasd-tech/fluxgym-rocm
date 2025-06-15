@@ -11,25 +11,6 @@ FluxGym supports 100% of Kohya sd-scripts features through an [Advanced](#advanc
 
 ---
 
-
-# What is this?
-
-1. I wanted a super simple UI for training Flux LoRAs
-2. The [AI-Toolkit](https://github.com/ostris/ai-toolkit) project is great, and the gradio UI contribution by [@multimodalart](https://x.com/multimodalart) is perfect, but the project only works for 24GB VRAM.
-3. [Kohya Scripts](https://github.com/kohya-ss/sd-scripts) are very flexible and powerful for training FLUX, but you need to run in terminal.
-4. What if you could have the simplicity of AI-Toolkit WebUI and the flexibility of Kohya Scripts?
-5. Flux Gym was born. Supports 12GB, 16GB, 20GB VRAMs, and extensible since it uses Kohya Scripts underneath.
-
----
-
-# News
-
-- September 25: Docker support + Autodownload Models (No need to manually download models when setting up) + Support custom base models (not just flux-dev but anything, just need to include in the [models.yaml](models.yaml) file.
-- September 16: Added "Publish to Huggingface" + 100% Kohya sd-scripts feature support: https://x.com/cocktailpeanut/status/1835719701172756592
-- September 11: Automatic Sample Image Generation + Custom Resolution: https://x.com/cocktailpeanut/status/1833881392482066638
-
----
-
 # Supported Models
 
 1. Flux1-dev
@@ -42,31 +23,14 @@ The models are automatically downloaded when you start training with the model s
 You can easily add more to the supported models list by editing the [models.yaml](models.yaml) file. If you want to share some interesting base models, please send a PR.
 
 ---
+Now it works on AMD HIP/ROCm? This need more tests but I actually manage to create something.
 
-# How people are using Fluxgym
+## Install Manually
 
-Here are people using Fluxgym to locally train Lora sharing their experience:
-
-https://pinokio.computer/item?uri=https://github.com/cocktailpeanut/fluxgym
-
-
-# More Info
-
-To learn more, check out this X thread: https://x.com/cocktailpeanut/status/1832084951115972653
-
-# Install
-
-## 1. One-Click Install
-
-You can automatically install and launch everything locally with Pinokio 1-click launcher: https://pinokio.computer/item?uri=https://github.com/cocktailpeanut/fluxgym
-
-
-## 2. Install Manually
-
-First clone Fluxgym and kohya-ss/sd-scripts:
+First clone Fluxgym-rocm and wasd-tech/sd-scripts-rocm:
 
 ```
-git clone https://github.com/cocktailpeanut/fluxgym
+git clone https://github.com/wasd-tech/fluxgym-rocm
 cd fluxgym
 git clone -b sd3 https://github.com/wasd-tech/sd-scripts-rocm.git sd-scripts
 ```
@@ -76,32 +40,25 @@ Your folder structure will look like this:
 ```
 /fluxgym
   app.py
-  requirements.txt
+  requirements_amd.txt
   /sd-scripts
 ```
 
-Now activate a venv from the root `fluxgym` folder:
+Now activate a venv from the root `fluxgym-rocm` folder:
 
-If you're on Windows:
-
-```
-python -m venv env
-env\Scripts\activate
-```
-
-If your're on Linux:
+On Linux:
 
 ```
 python -m venv env
 source env/bin/activate
 ```
 
-This will create an `env` folder right below the `fluxgym` folder:
+This will create an `env` folder right below the `fluxgym-rocm` folder:
 
 ```
-/fluxgym
+/fluxgym-rocm
   app.py
-  requirements.txt
+  requirements_amd.txt
   /sd-scripts
   /env
 ```
@@ -109,7 +66,7 @@ This will create an `env` folder right below the `fluxgym` folder:
 Now go to the `sd-scripts` folder and install dependencies to the activated environment:
 
 ```
-cd sd-scripts-rocm
+cd sd-scripts
 pip install -r requirements_amd.txt
 ```
 
@@ -129,7 +86,7 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 
 # Start
 
-Go back to the root `fluxgym` folder, with the venv activated, run:
+Go back to the root `fluxgym-rocm` folder, with the venv activated, run:
 
 ```
 python app.py
@@ -137,37 +94,7 @@ python app.py
 
 > Make sure to have the venv activated before running `python app.py`.
 >
-> Windows: `env/Scripts/activate`
 > Linux: `source env/bin/activate`
-
-## 3. Install via Docker
-
-First clone Fluxgym and kohya-ss/sd-scripts:
-
-```
-git clone https://github.com/cocktailpeanut/fluxgym
-cd fluxgym
-git clone -b sd3 https://github.com/kohya-ss/sd-scripts
-```
-Check your `user id` and `group id` and change it if it's not 1000 via `environment variables` of `PUID` and `PGID`. 
-You can find out what these are in linux by running the following command: `id`
-
-Now build the image and run it via `docker-compose`:
-```
-docker compose up -d --build
-```
-
-Open web browser and goto the IP address of the computer/VM: http://localhost:7860
-
-# Usage
-
-The usage is pretty straightforward:
-
-1. Enter the lora info
-2. Upload images and caption them (using the trigger word)
-3. Click "start".
-
-That's all!
 
 ![flow.gif](flow.gif)
 
