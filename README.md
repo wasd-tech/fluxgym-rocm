@@ -68,7 +68,7 @@ First clone Fluxgym and kohya-ss/sd-scripts:
 ```
 git clone https://github.com/cocktailpeanut/fluxgym
 cd fluxgym
-git clone -b sd3 https://github.com/kohya-ss/sd-scripts
+git clone -b sd3 https://github.com/wasd-tech/sd-scripts-rocm.git
 ```
 
 Your folder structure will look like this:
