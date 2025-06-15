@@ -1,5 +1,7 @@
 # Now it works on AMD HIP/ROCm? This need more tests but I actually manage to create something.
 
+notes for devs: the real problem was downloading things from the right repository of PyTorch and AMD (onnxruntime-rocm, tensorflow-rocm) and upgrade some packages (accelerate, safetensors, timm). The only package not precompiled is Bitsandbytes but I compiled a version compatible with python 3.12 for gfx1030;gfx1100;gfx1201;gfx1200, so all the AMD GPUs
+
 # Flux Gym
 
 Dead simple web UI for training FLUX LoRA **with LOW VRAM (12GB/16GB/20GB) support.**
@@ -45,7 +47,7 @@ Your folder structure will look like this:
   /sd-scripts
 ```
 
-Now activate a venv from the root `fluxgym-rocm` folder:
+Now activate a venv from the root `fluxgym-rocm` folder, **you have to create a venv with python3.12 or it will not work**:
 
 On Linux:
 
