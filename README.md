@@ -110,14 +110,14 @@ Now go to the `sd-scripts` folder and install dependencies to the activated envi
 
 ```
 cd sd-scripts
-pip install -r requirements.txt
+pip install -r requirements_amd.txt
 ```
 
 Now come back to the root folder and install the app dependencies:
 
 ```
 cd ..
-pip install -r requirements.txt
+pip install -r requirements_amd.txt
 ```
 
 Finally, install pytorch Nightly:
