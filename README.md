@@ -109,7 +109,7 @@ This will create an `env` folder right below the `fluxgym` folder:
 Now go to the `sd-scripts` folder and install dependencies to the activated environment:
 
 ```
-cd sd-scripts
+cd sd-scripts-rocm
 pip install -r requirements_amd.txt
 ```
 
