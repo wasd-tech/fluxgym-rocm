@@ -1,3 +1,5 @@
+# Now it works on AMD HIP/ROCm? This need more tests but I actually manage to create something.
+
 # Flux Gym
 
 Dead simple web UI for training FLUX LoRA **with LOW VRAM (12GB/16GB/20GB) support.**
@@ -23,7 +25,6 @@ The models are automatically downloaded when you start training with the model s
 You can easily add more to the supported models list by editing the [models.yaml](models.yaml) file. If you want to share some interesting base models, please send a PR.
 
 ---
-Now it works on AMD HIP/ROCm? This need more tests but I actually manage to create something.
 
 ## Install Manually
 
