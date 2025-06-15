@@ -21,7 +21,7 @@ timm
 prodigyopt
 controlnet_aux==0.0.7
 python-dotenv
-https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/releases/download/ROCm/bitsandbytes-0.43.3.rocm-cp312-cp312-linux_x86_64.whl
+https://github.com/wasd-tech/Guida-AMD-HIP-ROCm/releases/download/ROCm/bitsandbytes-0.43.3.dev0-cp312-cp312-linux_x86_64.whl
 hf_transfer
 lpips
 pytorch_fid
